@@ -1,0 +1,54 @@
+<!doctype HTML>
+<html>
+<head>
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    </head>
+    <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    <script src="events.js"></script>
+
+  <body style='margin : 0px; overflow: hidden;'>
+    <a-scene embedded arjs="trackingMethod:best; debugUIEnabled: false;">
+    <a-assets>
+        <a-asset-item id="animated-asset" src="https://raw.githubusercontent.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-click-events/models/CesiumMan.gltf"></a-asset-item>
+    </a-assets>
+
+  	<a-marker type =" pattern" preset="hiro" markerhandler emitevents="true" cursor="rayOrigin:mouse" id="animated-marker" smooth="true" smoothCount="3">
+      <!-- <a-entity
+        id="animated-model"
+        gltf-model="#animated-asset"
+        scale="2">
+      </a-entity> -->
+          <a-heart position='1.7 0 -1' material='color: cyan; opacity:0.7'
+            height="0.2" width="0.2" depth="0.2"
+            animation="property: rotation; to:0 360 0; dur: 5000; easing: linear; loop: true">
+          </a-heart>
+          <a-heart position='-1.7 0 -1' material='color: cyan; opacity:0.7'
+            height="0.2" width="0.2" depth="0.2"
+            animation="property: rotation; to:0 360 0; dur: 5000; easing: linear; loop: true">
+          </a-heart>
+
+          
+          <a-plane height="2" width= "3" color="blue" position="0 0 0" rotation="-90 0 0" material="opacity:0.9">
+            <!-- <a-text value="Lorenzo Prat" position="0.5 0.8 0.1" height="3" width="3" color="red"></a-text> -->
+            <a-image src="profile.jpg" width="0.7" height="1" position="-1 0 0.1"></a-image>
+
+            <a-text value=
+            "\n                          BEST DATE EVER
+            \n DATE:                     06/10/2021
+            \n Main characters:        Loren & Luchía
+            \n Path:                   Right picture ---\
+            \n                                       ---/
+            \n Best moment:         /--- Left picture
+            \n                      \---
+            \n                      'El comienzo de algo increíble'
+            "
+            position="-0.5 0 0.1" height="2" width="2" color="white">
+            </a-text>
+          </a-plane>
+  	</a-marker>
+  	<a-entity camera></a-entity>
+    </a-scene>
+  </body>
+</html>
